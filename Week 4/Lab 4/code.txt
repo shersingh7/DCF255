@@ -1,0 +1,72 @@
+#include "stdio.h"
+
+//Global Variables
+int i=0,x=0,y=0,num=1;
+
+int main(void) 
+{
+  int a1[15] = {0,1,1,1,1,1,1,0,1,1,1,1,1,1,0};
+  int a2[30] = {};
+  int a3[10] = {};
+
+   printf("Before Stuffing : ");
+
+    for(int i=0; i<15; i++)
+    {
+        printf("%d",a1[i]);
+    }
+
+    printf("-- 15 characters\n" ); 
+     
+ while(i<15)
+ {
+    if(a1[i]==1)
+    {
+      a2[x]=a1[i];
+      
+        for(y=i+1; a1[y]==1 && y<15 && num<5; y++)
+        {
+            x++;
+            a2[x]=a1[y];
+            num++;
+            if(num==5)
+            {
+                x++;
+                a2[x]=0;
+            }
+            i=y;
+        }
+    }
+    else
+    {
+        a2[x]=a1[i];
+    }
+    i++;
+    x++;
+  }
+      printf( "After Stuffing : " );
+
+      for(i=0; i<x; i++)
+      {
+          printf( "%d",a2[i]);
+      }
+          
+    printf( "-- 17 characters\n" ); 
+    printf( "After Framing : " );
+
+      for(y=0; y<8; y++)
+      {
+        printf( "%d",a3[y]);
+      }
+      for(i=0; i<x; i++)
+      {
+        printf( "%d",a2[i]); 
+      }
+      for(y=0; y<8; y++)
+      {
+        printf( "%d",a3[y]);
+      }
+
+  	printf("\n");
+    return 0;
+}
